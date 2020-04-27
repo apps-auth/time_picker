@@ -1893,7 +1893,7 @@ Future<TimeOfDay> showTimePicker({
       onKey: (key) {
         bool isEsc = key.data.keyLabel == "Escape";
         if (isEsc) {
-          Navigator.pop(context);
+          // Navigator.pop(context);
         }
       },
       child: _TimePickerDialog(initialTime: initialTime));
