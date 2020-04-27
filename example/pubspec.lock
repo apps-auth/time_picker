@@ -44,7 +44,7 @@ packages:
     source: hosted
     version: "0.1.3"
   cursor_tracker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cursor_tracker
       url: "https://pub.dartlang.org"

@@ -1,3 +1,4 @@
+import 'package:cursor_tracker/cursor_tracker.dart';
 import 'package:flutter/material.dart';
 import 'package:time_picker/time_picker.dart' as timePicker;
 
@@ -52,25 +53,27 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          TimeOfDay time = await timePicker.showTimePicker(
-            context: context,
-            initialTime: TimeOfDay.now(),
-            builder: (BuildContext context, Widget child) {
-              return MediaQuery(
-                data: MediaQuery.of(context)
-                    .copyWith(alwaysUse24HourFormat: true),
-                child: child,
-              );
-            },
-          );
-          setState(() {
-            timeOfDay = time;
-          });
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.access_time),
+      floatingActionButton: CursorTracker(
+              child: FloatingActionButton(
+          onPressed: () async {
+            TimeOfDay time = await timePicker.showTimePicker(
+              context: context,
+              initialTime: TimeOfDay.now(),
+              builder: (BuildContext context, Widget child) {
+                return MediaQuery(
+                  data: MediaQuery.of(context)
+                      .copyWith(alwaysUse24HourFormat: true),
+                  child: child,
+                );
+              },
+            );
+            setState(() {
+              timeOfDay = time;
+            });
+          },
+          tooltip: 'Increment',
+          child: Icon(Icons.access_time),
+        ),
       ),
     );
   }
